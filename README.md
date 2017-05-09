@@ -1,3 +1,5 @@
+# TypeScript React Starter
+
 This quick start guide will teach you how to wire up TypeScript with [React](http://facebook.github.io/react/).
 By the end, you'll have
 

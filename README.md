@@ -216,7 +216,7 @@ To style our `Hello` component, we can create a CSS file at `src/components/Hell
   text-align: center;
   margin: 20px;
   font-size: 48px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .hello button {

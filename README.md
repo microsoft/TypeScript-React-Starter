@@ -640,7 +640,7 @@ If you still want to learn more about Redux, you can [check out the official web
 The same goes [for MobX](https://mobx.js.org/).
 
 If you want to eject at some point, you may need to know a little bit more about Webpack.
-You can check out our [React & Webpack walkthrough here](./React & Webpack.md).
+You can check out our [React & Webpack walkthrough here](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html).
 
 At some point you might need routing.
 There are several solutons, but [react-router](https://github.com/ReactTraining/react-router) is probably the most popular for Redux projects, and is often used in conjunction with [react-router-redux](https://github.com/reactjs/react-router-redux).

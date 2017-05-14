@@ -321,7 +321,7 @@ Because React on its own does not provide built-in support for state management,
 State is updated in an immutable fashion by sending explicit action messages which must be handled by functions called reducers.
 Because of the explicit nature, it is often easier to reason about how an action will affect the state of your program.
 
-[MobX](https://mobx.js.org/) relies on functional reactive patterns where state is wrapped through observables and and passed through as props.
+[MobX](https://mobx.js.org/) relies on functional reactive patterns where state is wrapped through observables and passed through as props.
 Keeping state fully synchronized for any observers is done by simply marking state as observable.
 As a nice bonus, the library is already written in TypeScript.
 

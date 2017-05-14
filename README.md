@@ -220,10 +220,10 @@ To style our `Hello` component, we can create a CSS file at `src/components/Hell
 }
 
 .hello button {
-    margin-left: 25px;
-    margin-right: 25px;
-    font-size: 40px;
-    min-width: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 40px;
+  min-width: 50px;
 }
 ```
 

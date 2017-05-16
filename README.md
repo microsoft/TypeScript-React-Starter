@@ -181,7 +181,7 @@ Now that we've written our component, let's dive into `index.tsx` and replace ou
 First we'll import it at the top of the file:
 
 ```ts
-import Hello from './components/Hello.tsx';
+import Hello from './components/Hello';
 ```
 
 and then change up our `render` call:

@@ -29,9 +29,13 @@
     "@types/react" "*"
     redux "^3.6.0"
 
-"@types/react@*", "@types/react@5.0.14":
+"@types/react@*":
   version "15.0.4"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.4.tgz#97aedbba00448a137331aa8450232124aeb8d426"
+
+"@types/react@15.0.14":
+  version "15.0.14"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.14.tgz#07a739b20b0d4cf946f52444d3c40a94d4a234b1"
 
 abab@^1.0.3:
   version "1.0.3"

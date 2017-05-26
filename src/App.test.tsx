@@ -4,13 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import App from './App';
-import { enthusiasm } from './reducers/index';
-import { StoreState } from './types/index';
 
-const mockStore = createStore<StoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: 'TypeScript',
-});
+const mockState = {};
+const mockReducer = () => mockState;
+const mockStore = createStore<Object>(mockReducer, mockState);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

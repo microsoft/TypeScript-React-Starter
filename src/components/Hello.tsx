@@ -1,3 +1,6 @@
+/*
+ Function based Hello.tsx see Hello.ClassBased.tsx for a Class based
+ */
 import * as React from 'react';
 import './Hello.css';
 

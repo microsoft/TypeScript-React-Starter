@@ -576,6 +576,23 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>)
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);
 ```
 
+**Note**: If we're getting a TypeScript compile error: *Argument of type 'typeof Hello' is not assignable to parameter...* try implementing the following change:
+
+```ts
+// From:
+export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+
+// To be:
+export function mergeProps(stateProps: Object, dispatchProps: Object, ownProps: Object) {
+  return Object.assign({}, ownProps, stateProps, dispatchProps);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Hello);
+```
+
+
+This implements the default `mergeProps` [used in react-redux](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) explicitly. This error may have resulted if we implementing a class based `src/components/Hello.tsx` (e.g. `class Hello extends React.Component<Props, object>`).
+
 ## Creating a store
 
 Let's go back to `src/index.tsx`.

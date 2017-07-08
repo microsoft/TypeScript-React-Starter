@@ -254,7 +254,7 @@ Enzyme is similar, but builds on jsdom and makes it easier to make certain queri
 Let's install it as a development-time dependency.
 
 ```sh
-npm install -D enzyme @types/enzyme react-addons-test-utils
+npm install -D enzyme @types/enzyme react-addons-test-utils react-test-renderer
 ```
 
 Notice we installed packages `enzyme` as well as `@types/enzyme`.

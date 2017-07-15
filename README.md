@@ -276,12 +276,12 @@ import Hello from './Hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm of 1', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={1}/>);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm level of 5', () => {
@@ -387,7 +387,7 @@ This `const`/`type` pattern allows us to use TypeScript's string literal types i
 Next, we'll create a set of actions and functions that can create these actions in `src/actions/index.tsx`.
 
 ```ts
-import * as constants from '../constants'
+import * as constants from '../constants';
 
 export interface IncrementEnthusiasm {
     type: constants.INCREMENT_ENTHUSIASM;
@@ -643,4 +643,4 @@ If you want to eject at some point, you may need to know a little bit more about
 You can check out our [React & Webpack walkthrough here](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html).
 
 At some point you might need routing.
-There are several solutons, but [react-router](https://github.com/ReactTraining/react-router) is probably the most popular for Redux projects, and is often used in conjunction with [react-router-redux](https://github.com/reactjs/react-router-redux).
+There are several solutions, but [react-router](https://github.com/ReactTraining/react-router) is probably the most popular for Redux projects, and is often used in conjunction with [react-router-redux](https://github.com/reactjs/react-router-redux).

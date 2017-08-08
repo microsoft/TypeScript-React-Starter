@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-addons-test-utils": "^15.4.2",
-    "react-scripts-ts": "1.0.6"
+    "react-scripts-ts": "1.0.6",
+    "react-test-renderer": "^15.6.1"
   },
   "dependencies": {
     "@types/enzyme": "^2.7.2",

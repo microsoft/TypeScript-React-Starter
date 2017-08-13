@@ -254,15 +254,15 @@ Enzyme is similar, but builds on jsdom and makes it easier to make certain queri
 Let's install it as a development-time dependency.
 
 ```sh
-npm install -D enzyme @types/enzyme react-addons-test-utils
+npm install -D enzyme @types/enzyme react-test-renderer react-dom
 ```
 
 Notice we installed packages `enzyme` as well as `@types/enzyme`.
 The `enzyme` package refers to the package containing JavaScript code that actually gets run, while `@types/enzyme` is a package that contains declaration files (`.d.ts` files) so that TypeScript can understand how you can use Enzyme.
 You can learn more about `@types` packages [here](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html).
 
-We also had to install `react-addons-test-utils`.
-This is something `enzyme` expects to be installed.
+We also had to install `react-test-renderer` and `react-dom`.
+This is something `enzyme` expects to be installed (if you are using a version of React that is older than 15.5, you will have to install `react-addons-test-utils` instead of `react-test-renderer`)
 
 Now that we've got Enzyme set up, let's start writing our test!
 Let's create a file named `src/components/Hello.test.tsx`, adjacent to our `Hello.tsx` file from earlier.

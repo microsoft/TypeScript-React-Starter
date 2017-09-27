@@ -4,18 +4,18 @@
   "private": true,
   "devDependencies": {
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts-ts": "1.0.6"
+    "react-scripts-ts": "2.7.0"
   },
   "dependencies": {
     "@types/enzyme": "^2.7.2",
-    "@types/jest": "^18.1.1",
-    "@types/node": "^7.0.5",
-    "@types/react": "15.0.14",
-    "@types/react-dom": "^0.14.22",
-    "@types/react-redux": "^4.4.36",
-    "enzyme": "^2.7.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "@types/jest": "^21.1.1",
+    "@types/node": "^8.0.31",
+    "@types/react": "16.0.7",
+    "@types/react-dom": "^15.5.5",
+    "@types/react-redux": "^5.0.9",
+    "enzyme": "^3.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0"
   },

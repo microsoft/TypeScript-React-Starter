@@ -30,6 +30,8 @@ We'll create a new project called `my-app`:
 create-react-app my-app --scripts-version=react-scripts-ts
 ```
 
+(If you have an existing server project from which you want to serve the React content, just run the command above from your existing project root, e.g. with project name 'client'.  The React bundle can then be [served statically from the 'client' directory](https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/).)
+
 [react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts) is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.
 
 At this point, your project layout should look like the following:

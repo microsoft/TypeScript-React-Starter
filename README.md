@@ -254,7 +254,7 @@ Enzyme is similar, but builds on jsdom and makes it easier to make certain queri
 Let's install it as a development-time dependency.
 
 ```sh
-npm install -D enzyme @types/enzyme react-addons-test-utils
+npm install -D enzyme enzyme-adapter-react-16 @types/enzyme react-addons-test-utils
 ```
 
 Notice we installed packages `enzyme` as well as `@types/enzyme`.
@@ -272,7 +272,10 @@ Let's create a file named `src/components/Hello.test.tsx`, adjacent to our `Hell
 
 import * as React from 'react';
 import * as enzyme from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
 import Hello from './Hello';
+
+enzyme.configure({ adapter: new Adapter() });
 
 it('renders the correct text when no enthusiasm level is given', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' />);

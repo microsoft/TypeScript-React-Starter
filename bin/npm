@@ -1,0 +1,11 @@
+#!/bin/bash
+
+####################
+###   Binaries   ###
+####################
+DOCKER_COMPOSE=$(which docker-compose)
+####################
+
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
+${DOCKER_COMPOSE} -f ${PROJECT_PATH}/docker-compose.yml run --user="$UID" node bash -c "cd /home/nodejs && npm $(echo $@)"

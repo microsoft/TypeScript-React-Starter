@@ -1,0 +1,23 @@
+#!/bin/bash
+
+####################
+###   Binaries   ###
+####################
+DOCKER=$(which docker)
+####################
+
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
+if [ -z $1 ]; then
+    echo "Version argument required"
+    exit 1
+fi
+
+VERSION=$1
+
+${DOCKER} build -t localhost:5000/typescript-react-app/client/nginx:latest -f ${PROJECT_PATH}/docker/nginx/Dockerfile ${PROJECT_PATH} --no-cache
+
+${DOCKER} tag localhost:5000/typescript-react-app/client/nginx:latest localhost:5000/typescript-react-app/client/nginx:${VERSION}
+
+${DOCKER} push localhost:5000/typescript-react-app/client/nginx:latest
+${DOCKER} push localhost:5000/typescript-react-app/client/nginx:${VERSION}

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  node:
+    image: node
+    ports:
+      - "80:3000"
+    volumes:
+      - ./app:/home/nodejs
+    command:  bash -c  "cd /home/nodejs/ && npm install && npm start"

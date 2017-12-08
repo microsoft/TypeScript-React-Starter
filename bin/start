@@ -1,0 +1,18 @@
+#!/bin/bash
+
+####################
+###   Binaries   ###
+####################
+DOCKER_COMPOSE=$(which docker-compose)
+####################
+
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
+echo "[$(date +"%Y-%m-%d %T")] Stopping lingering containers..."
+
+${DOCKER_COMPOSE} -f ${PROJECT_PATH}/docker-compose.yml down --remove-orphans
+
+echo "[$(date +"%Y-%m-%d %T")] Starting the containers..."
+
+${DOCKER_COMPOSE} -f ${PROJECT_PATH}/docker-compose.yml up -d
+${DOCKER_COMPOSE} -f ${PROJECT_PATH}/docker-compose.yml logs -f

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+####################
+###   Binaries   ###
+####################
+DOCKER=$(which docker)
+####################
+
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
+${DOCKER} stack deploy -c ${PROJECT_PATH}/swarm-compose.yml typescript-react-app;

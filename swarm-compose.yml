@@ -1,0 +1,22 @@
+version: '3'
+services:
+  nginx:
+    image: localhost:5000/typescript-react-app/client/nginx
+    restart: always
+    networks:
+      - gateway
+    deploy:
+      resources:
+        limits:
+          memory: "524288000"
+          cpus: "1"
+      labels:
+        - "traefik.docker.network=traefik_gateway"
+        - "traefik.port=80"
+        - "traefik.frontend.rule=Host:typescriptreactapp.lambdaloopers.com"
+        - "traefik.backend=residencia-palau-client"
+
+networks:
+  gateway:
+    external:
+      name: traefik_gateway

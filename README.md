@@ -52,7 +52,7 @@ Of note:
 * `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
-* `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
+* `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our application, and is mandatory.
 
 # Running the project
 

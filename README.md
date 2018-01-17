@@ -276,28 +276,28 @@ import Hello from './Hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm of 1', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={1}/>);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm level of 5', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={5} />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!!!!!');
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!!!!!');
 });
 
 it('throws when the enthusiasm level is 0', () => {
   expect(() => {
-    enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={0} />);
+    enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={0} />);
   }).toThrow();
 });
 
 it('throws when the enthusiasm level is negative', () => {
   expect(() => {
-    enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={-1} />);
+    enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={-1} />);
   }).toThrow();
 });
 ```
@@ -440,8 +440,8 @@ export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreSt
       return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
     case DECREMENT_ENTHUSIASM:
       return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+    default: return state;
   }
-  return state;
 }
 ```
 
@@ -523,7 +523,7 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
-  }
+  };
 }
 ```
 
@@ -537,7 +537,7 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>)
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  }
+  };
 }
 ```
 

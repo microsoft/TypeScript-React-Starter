@@ -113,12 +113,12 @@ We'll write a `Hello.tsx`:
 
 import * as React from 'react';
 
-export interface Props {
+export interface IProps {
   name: string;
   enthusiasmLevel?: number;
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Props) {
+function Hello({ name, enthusiasmLevel = 1 }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
@@ -141,7 +141,7 @@ function getExclamationMarks(numChars: number) {
 }
 ```
 
-Notice that we defined a type named `Props` that specifies the properties our component will take.
+Notice that we defined a type named `IProps` that specifies the properties our component will take.
 `name` is a required `string`, and `enthusiasmLevel` is an optional `number` (which you can tell from the `?` that we wrote out after its name).
 
 We also wrote `Hello` as a stateless function component (an SFC).
@@ -152,7 +152,7 @@ Writing functions is one of two primary [ways React allows us to make components
 If we wanted, we *could* have written it out as a class as follows:
 
 ```ts
-class Hello extends React.Component<Props, object> {
+class Hello extends React.Component<IProps, object> {
   render() {
     const { name, enthusiasmLevel = 1 } = this.props;
 
@@ -172,7 +172,7 @@ class Hello extends React.Component<Props, object> {
 ```
 
 Classes are useful [when our component instances have some state](https://facebook.github.io/react/docs/state-and-lifecycle.html).
-But we don't really need to think about state in this example - in fact, we specified it as `object` in `React.Component<Props, object>`, so writing an SFC tends to be shorter.
+But we don't really need to think about state in this example - in fact, we specified it as `object` in `React.Component<IProps, object>`, so writing an SFC tends to be shorter.
 Local component state is more useful at the presentational level when creating generic UI elements that can be shared between libraries.
 For our application's lifecycle, we will revisit how applications manage general state with Redux in a bit.
 

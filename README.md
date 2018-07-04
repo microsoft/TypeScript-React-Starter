@@ -554,10 +554,11 @@ When we're finished, our file should look like this:
 ```ts
 // src/containers/Hello.tsx
 
-import Hello from '../components/Hello';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import * as actions from '../actions/';
+import Hello from '../components/Hello';
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
 
 export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {

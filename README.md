@@ -70,6 +70,29 @@ git add .
 git commit -m "Initial commit."
 ```
 
+> Note: if you've cloned this repository, you won't have to run the above at all.
+
+# Overriding defaults
+
+The TSLint configuration that react-scripts-ts sets us up with is a bit overzealous.
+Let's fix that up.
+
+```diff
+ {
+-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
++  "extends": [],
++  "defaultSeverity": "warning",
+   "linterOptions": {
+     "exclude": [
+       "config/**/*.js",
+       "node_modules/**/*.ts"
+     ]
+   }
+ }
+```
+
+[Configuring TSLint](https://palantir.github.io/tslint/usage/configuration/) is out of the scope of this starter, but you should feel free to experiment with something that works for you.
+
 # Running the project
 
 Running the project is as simple as running

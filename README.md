@@ -37,22 +37,27 @@ At this point, your project layout should look like the following:
 ```text
 my-app/
 ├─ .gitignore
+├─ images.d.ts
 ├─ node_modules/
 ├─ public/
 ├─ src/
 │  └─ ...
 ├─ package.json
 ├─ tsconfig.json
+├─ tsconfig.prod.json
+├─ tsconfig.test.json
 └─ tslint.json
 ```
 
 Of note:
 
 * `tsconfig.json` contains TypeScript-specific options for our project.
+  * We also have a `tsconfig.prod.json` and a `tsconfig.test.json` in case we want to make any tweaks to our production builds, or our test builds.
 * `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
 * `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
+* `images.d.ts` will tell TypeScript that we're certain types of image files, which create-react-app supports.
 
 # Running the project
 

@@ -59,6 +59,17 @@ Of note:
 * `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
 * `images.d.ts` will tell TypeScript that we're certain types of image files, which create-react-app supports.
 
+# Setting up source control
+
+Our testing tool, Jest, expects some form of source control (such as Git or Mercurial) to be present.
+For it to run correctly, we'll need to initialize a git repository.
+
+```sh
+git init
+git add .
+git commit -m "Initial commit."
+```
+
 # Running the project
 
 Running the project is as simple as running

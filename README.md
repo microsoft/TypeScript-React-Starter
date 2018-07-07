@@ -450,7 +450,7 @@ It's important that the `enthusiasmLevel` property come last, since otherwise it
 
 You may want to write a few tests for your reducer.
 Since reducers are pure functions, they can be passed arbitrary data.
-For every input, reducers can tested by checking their newly produced state.
+For every input, reducers can be tested by checking their newly produced state.
 Consider looking into Jest's [toEqual](https://facebook.github.io/jest/docs/expect.html#toequalvalue) method to accomplish this.
 
 ## Making a container

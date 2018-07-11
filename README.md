@@ -264,7 +264,8 @@ You can learn more about `@types` packages [here](https://www.typescriptlang.org
 We also had to install `enzyme-adapter-react-16 and react-test-renderer`.
 This is something `enzyme` expects to be installed.
 
-Before writing the first test, we have to configure enzyme to use the adapter for react 16. Create a file called `src/setupTests.ts` that is automatically loaded when running tests:
+Before writing the first test, we have to configure Enzyme to use an adapter for React 16.
+We'll create a file called `src/setupTests.ts` that is automatically loaded when running tests:
 
 ```ts
 import * as enzyme from 'enzyme';

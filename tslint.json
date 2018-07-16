@@ -95,5 +95,6 @@
             "check-type",
             "check-typecast"
         ]
-    }
+    },
+    "defaultSeverity": "warning"
 }

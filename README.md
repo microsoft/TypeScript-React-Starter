@@ -144,7 +144,7 @@ function getExclamationMarks(numChars: number) {
 Notice that we defined a type named `Props` that specifies the properties our component will take.
 `name` is a required `string`, and `enthusiasmLevel` is an optional `number` (which you can tell from the `?` that we wrote out after its name).
 
-We also wrote `Hello` as a stateless function component (an SFC).
+We also wrote `Hello` as a stateless functional component (an SFC).
 To be specific, `Hello` is a function that takes a `Props` object, and destructures it.
 If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
 

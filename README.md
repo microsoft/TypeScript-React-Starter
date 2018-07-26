@@ -113,12 +113,12 @@ We'll write a `Hello.tsx`:
 
 import * as React from 'react';
 
-export interface Props {
+export interface IProps {
   name: string;
   enthusiasmLevel?: number;
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Props) {
+function Hello({ name, enthusiasmLevel = 1 }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
@@ -141,18 +141,18 @@ function getExclamationMarks(numChars: number) {
 }
 ```
 
-Notice that we defined a type named `Props` that specifies the properties our component will take.
+Notice that we defined a interface named `IProps` that specifies the properties our component will take.
 `name` is a required `string`, and `enthusiasmLevel` is an optional `number` (which you can tell from the `?` that we wrote out after its name).
 
 We also wrote `Hello` as a stateless function component (an SFC).
-To be specific, `Hello` is a function that takes a `Props` object, and destructures it.
-If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
+To be specific, `Hello` is a function that takes a `IProps` object, and destructures it.
+If `enthusiasmLevel` isn't given in our `IProps` object, it will default to `1`.
 
 Writing functions is one of two primary [ways React allows us to make components]((https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)).
 If we wanted, we *could* have written it out as a class as follows:
 
 ```ts
-class Hello extends React.Component<Props, object> {
+class Hello extends React.Component<IProps, object> {
   render() {
     const { name, enthusiasmLevel = 1 } = this.props;
 
@@ -471,10 +471,10 @@ Components are often data-agnostic, and work mostly at a presentational level.
 You can read more about this concept on [Dan Abramov's article *Presentational and Container Components*](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 First let's update `src/components/Hello.tsx` so that it can modify state.
-We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
+We'll add two optional callback properties to `IProps` named `onIncrement` and `onDecrement`:
 
 ```ts
-export interface Props {
+export interface IProps {
   name: string;
   enthusiasmLevel?: number;
   onIncrement?: () => void;
@@ -485,7 +485,7 @@ export interface Props {
 Then we'll bind those callbacks to two new buttons that we'll add into our component.
 
 ```ts
-function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
+function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }

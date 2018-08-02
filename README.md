@@ -57,7 +57,7 @@ Of note:
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
 * `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
-* `images.d.ts` will tell TypeScript that we're certain types of image files, which create-react-app supports.
+* `images.d.ts` will tell TypeScript that certain types of image files can be `import`-ed, which create-react-app supports.
 
 # Setting up source control
 

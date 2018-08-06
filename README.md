@@ -520,7 +520,7 @@ This `const`/`type` pattern allows us to use TypeScript's string literal types i
 Next, we'll create a set of actions and functions that can create these actions in `src/actions/index.tsx`.
 
 ```ts
-import * as constants from '../constants'
+import * as constants from '../constants';
 
 export interface IncrementEnthusiasm {
     type: constants.INCREMENT_ENTHUSIASM;

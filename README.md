@@ -719,7 +719,7 @@ import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
 
-const store = createStore<StoreState>(enthusiasm, {
+const store: StoreState = createStore(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });

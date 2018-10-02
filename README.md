@@ -192,8 +192,11 @@ If we wanted, we *could* have written it out as a class as follows:
 
 ```ts
 class Hello extends React.Component<Props, object> {
-  render() {
-    const { name, enthusiasmLevel = 1 } = this.props;
+  public static defaultProps: Partial<Props> = {
+    enthusiasmLevel: 1
+  };
+  public render(): JSX.Element {
+    const { name, enthusiasmLevel } = this.props;
 
     if (enthusiasmLevel <= 0) {
       throw new Error('You could be a little more enthusiastic. :D');

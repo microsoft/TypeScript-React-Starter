@@ -11,7 +11,7 @@ By the end, you'll have
 We'll use the [create-react-app](https://github.com/facebookincubator/create-react-app) tool to quickly get set up.
 
 We assume that you're already using [Node.js](https://nodejs.org/) with [npm](https://www.npmjs.com/).
-You may also want to get a sense of [the basics with React](https://facebook.github.io/react/docs/hello-world.html).
+You may also want to get a sense of [the basics with React](https://reactjs.org/docs/hello-world.html).
 
 # Install create-react-app
 

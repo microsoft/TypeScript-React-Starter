@@ -13,20 +13,21 @@ We'll use the [create-react-app](https://github.com/facebookincubator/create-rea
 We assume that you're already using [Node.js](https://nodejs.org/) with [npm](https://www.npmjs.com/).
 You may also want to get a sense of [the basics with React](https://facebook.github.io/react/docs/hello-world.html).
 
-# Install create-react-app
+# Create our new project
 
 We're going to use the create-react-app because it sets some useful tools and canonical defaults for React projects.
 This is just a command-line utility to scaffold out new React projects.
 
-```shell
-npm install -g create-react-app
-```
-
-# Create our new project
-
 We'll create a new project called `my-app`:
 
 ```shell
+npx create-react-app my-app --scripts-version=react-scripts-ts
+```
+
+If you're running an npm version earlier than v5.2.0, you may not have [npx](https://github.com/zkat/npx) installed. Instead, you can install create-react-app globally:
+
+```shell
+npm install -g create-react-app
 create-react-app my-app --scripts-version=react-scripts-ts
 ```
 

@@ -1,6 +1,9 @@
 {
     "extends": [],
     "defaultSeverity": "warning",
+    "rules": {
+        "interface-name": false
+    },
     "linterOptions": {
       "exclude": [
         "config/**/*.js",

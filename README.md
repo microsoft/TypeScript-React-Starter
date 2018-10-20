@@ -52,7 +52,7 @@ my-app/
 Of note:
 
 * `tsconfig.json` contains TypeScript-specific options for our project.
-  * We also have a `tsconfig.prod.json` and a `tsconfig.test.json` in case we want to make any tweaks to our production builds, or our test builds.
+  * We also have a `tsconfig.prod.json` and a `tsconfig.test.json` in case we want to make any tweaks to our production or test builds.
 * `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.

@@ -67,7 +67,7 @@ For it to run correctly, we'll need to initialize a git repository.
 ```sh
 git init
 git add .
-git commit -m "Initial commit."
+git commit -m "Initial commit"
 ```
 
 > Note: if you've cloned this repository, you won't have to run the above at all.

@@ -268,8 +268,8 @@ To do that, we're going to
 
 import * as React from "react";
 
-export interface Props {
-  name: string;
+export interface IProps {
+  name?: string;
   enthusiasmLevel?: number;
 }
 

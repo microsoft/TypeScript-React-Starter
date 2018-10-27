@@ -144,7 +144,7 @@ If `enthusiasmLevel` is `0` or negative, it should throw an error.
 
 We'll write a `Hello.tsx`:
 
-```ts
+```tsx
 // src/components/Hello.tsx
 
 import * as React from 'react';
@@ -180,14 +180,14 @@ function getExclamationMarks(numChars: number) {
 Notice that we defined a type named `Props` that specifies the properties our component will take.
 `name` is a required `string`, and `enthusiasmLevel` is an optional `number` (which you can tell from the `?` that we wrote out after its name).
 
-We also wrote `Hello` as a stateless function component (an SFC).
+We also wrote `Hello` as a stateless functional component (an SFC).
 To be specific, `Hello` is a function that takes a `Props` object, and picks apart (or "destructures") all the properties that it will be passed.
 If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
 
 Writing functions is one of two primary [ways React allows us to make components]((https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)).
 If we wanted, we *could* have written it out as a class as follows:
 
-```ts
+```tsx
 class Hello extends React.Component<Props, object> {
   render() {
     const { name, enthusiasmLevel = 1 } = this.props;
@@ -219,13 +219,13 @@ Now that we've written our component, let's dive into `index.tsx` and replace ou
 
 First we'll import it at the top of the file:
 
-```ts
+```tsx
 import Hello from './components/Hello';
 ```
 
 and then change up our `render` call:
 
-```ts
+```tsx
 ReactDOM.render(
   <Hello name="TypeScript" enthusiasmLevel={10} />,
   document.getElementById('root') as HTMLElement
@@ -260,7 +260,7 @@ To do that, we're going to
 1. Initialize `this.state` based on the props we're given in our constructor.
 1. Create two event handlers for our buttons (`onIncrement` and `onDecrement`).
 
-```ts
+```tsx
 // src/components/StatefulHello.tsx
 
 import * as React from "react";
@@ -350,7 +350,7 @@ The tools that create-react-app uses (namely, Webpack and various loaders) allow
 When our build runs, any imported `.css` files will be concatenated into an output file.
 So in `src/components/Hello.tsx`, we'll add the following import.
 
-```ts
+```tsx
 import './Hello.css';
 ```
 
@@ -386,7 +386,7 @@ This is something `enzyme` expects to be installed.
 Before writing the first test, we have to configure Enzyme to use an adapter for React 16.
 We'll create a file called `src/setupTests.ts` that is automatically loaded when running tests:
 
-```ts
+```tsx
 import * as enzyme from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 
@@ -396,7 +396,7 @@ enzyme.configure({ adapter: new Adapter() });
 Now that we've got Enzyme set up, let's start writing our test!
 Let's create a file named `src/components/Hello.test.tsx`, adjacent to our `Hello.tsx` file from earlier.
 
-```ts
+```tsx
 // src/components/Hello.test.tsx
 
 import * as React from 'react';
@@ -485,7 +485,7 @@ In this case we didn't need to install `@types/redux` because Redux already come
 We need to define the shape of the state which Redux will store.
 For this, we can create a file called `src/types/index.tsx` which will contain definitions for types that we might use throughout the program.
 
-```ts
+```tsx
 // src/types/index.tsx
 
 export interface StoreState {
@@ -501,7 +501,7 @@ When we write our first container, we'll understand why we intentionally made ou
 
 Let's start off by creating a set of message types that our app can respond to in `src/constants/index.tsx`.
 
-```ts
+```tsx
 // src/constants/index.tsx
 
 export const INCREMENT_ENTHUSIASM = 'INCREMENT_ENTHUSIASM';
@@ -516,7 +516,7 @@ This `const`/`type` pattern allows us to use TypeScript's string literal types i
 
 Next, we'll create a set of actions and functions that can create these actions in `src/actions/index.tsx`.
 
-```ts
+```tsx
 import * as constants from '../constants';
 
 export interface IncrementEnthusiasm {
@@ -557,7 +557,7 @@ In other words, they're what we call *[pure functions](https://en.wikipedia.org/
 Our reducer will go under `src/reducers/index.tsx`.
 Its function will be to ensure that increments raise the enthusiasm level by 1, and that decrements reduce the enthusiasm level by 1, but that the level never falls below 1.
 
-```ts
+```tsx
 // src/reducers/index.tsx
 
 import { EnthusiasmAction } from '../actions';
@@ -593,7 +593,7 @@ You can read more about this concept on [Dan Abramov's article *Presentational a
 First let's update `src/components/Hello.tsx` so that it can modify state.
 We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
 
-```ts
+```tsx
 export interface Props {
   name: string;
   enthusiasmLevel?: number;
@@ -604,7 +604,7 @@ export interface Props {
 
 Then we'll bind those callbacks to two new buttons that we'll add into our component.
 
-```ts
+```tsx
 function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
@@ -630,7 +630,7 @@ Give it a shot to get the hang of writing tests for your components.
 Now that our component is updated, we're ready to wrap it into a container.
 Let's create a file named `src/containers/Hello.tsx` and start off with the following imports.
 
-```ts
+```tsx
 import Hello from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
@@ -648,7 +648,7 @@ Our `Hello` component, on the other hand, expected a `name` and an `enthusiasmLe
 `mapStateToProps` will get the relevant data from the store, and adjust it if necessary, for our component's props.
 Let's go ahead and write that.
 
-```ts
+```tsx
 export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
@@ -662,7 +662,7 @@ Namely, we still want to pass in the `onIncrement` and `onDecrement` callbacks.
 `mapDispatchToProps` is a function that takes a dispatcher function.
 This dispatcher function can pass actions into our store to make updates, so we can create a pair of callbacks that will call the dispatcher as necessary.
 
-```ts
+```tsx
 export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
@@ -675,13 +675,13 @@ Finally, we're ready to call `connect`.
 `connect` will first take `mapStateToProps` and `mapDispatchToProps`, and then return another function that we can use to wrap our component.
 Our resulting container is defined with the following line of code:
 
-```ts
+```tsx
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);
 ```
 
 When we're finished, our file should look like this:
 
-```ts
+```tsx
 // src/containers/Hello.tsx
 
 import Hello from '../components/Hello';
@@ -711,7 +711,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Hello);
 Let's go back to `src/index.tsx`.
 To put this all together, we need to create a store with an initial state, and set it up with all of our reducers.
 
-```ts
+```tsx
 import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
@@ -727,14 +727,14 @@ const store = createStore<StoreState>(enthusiasm, {
 Next, we're going to swap our use of `./src/components/Hello` with `./src/containers/Hello` and use react-redux's `Provider` to wire up our props with our container.
 We'll import each:
 
-```ts
+```tsx
 import Hello from './containers/Hello';
 import { Provider } from 'react-redux';
 ```
 
 and pass our `store` through to the `Provider`'s attributes:
 
-```ts
+```tsx
 ReactDOM.render(
   <Provider store={store}>
     <Hello />

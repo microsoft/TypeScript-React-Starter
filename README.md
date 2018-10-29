@@ -1,3 +1,6 @@
+[![Licensed under the MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/Microsoft/TypeScript-React-Starter/pulls)
+
 # TypeScript React Starter
 
 This quick start guide will teach you how to wire up TypeScript with [React](http://facebook.github.io/react/).
@@ -777,3 +780,7 @@ You can check out our [React & Webpack walkthrough here](https://www.typescriptl
 
 At some point you might need routing.
 There are several solutions, but [react-router](https://github.com/ReactTraining/react-router) is probably the most popular for Redux projects, and is often used in conjunction with [react-router-redux](https://github.com/reactjs/react-router-redux).
+
+# License
+
+The [MIT](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/LICENSE) license.

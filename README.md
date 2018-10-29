@@ -21,6 +21,7 @@ This is just a command-line utility to scaffold out new React projects.
 ```shell
 npm install -g create-react-app
 ```
+* Make sure that [NPM](https://www.npmjs.com/package/npm) is installed .
 
 # Create our new project
 

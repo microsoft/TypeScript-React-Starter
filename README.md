@@ -777,3 +777,7 @@ You can check out our [React & Webpack walkthrough here](https://www.typescriptl
 
 At some point you might need routing.
 There are several solutions, but [react-router](https://github.com/ReactTraining/react-router) is probably the most popular for Redux projects, and is often used in conjunction with [react-router-redux](https://github.com/reactjs/react-router-redux).
+
+## License
+
+This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) for addtional details.

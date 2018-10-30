@@ -56,7 +56,7 @@ Of note:
 * `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
-* `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
+* `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file and it is mandatory.
 * `images.d.ts` will tell TypeScript that certain types of image files can be `import`-ed, which create-react-app supports.
 
 # Setting up source control
@@ -102,7 +102,7 @@ npm run start
 ```
 
 This runs the `start` script specified in our `package.json`, and will spawn off a server which reloads the page as we save our files.
-Typically the server runs at `http://localhost:3000`, but should be automatically opened for you.
+Typically, the server runs at `http://localhost:3000`, but should be automatically opened for you.
 
 This tightens the iteration loop by allowing us to quickly preview changes.
 
@@ -220,7 +220,7 @@ We'll return to component state in a bit.
 
 Now that we've written our component, let's dive into `index.tsx` and replace our render of `<App />` with a render of `<Hello ... />`.
 
-First we'll import it at the top of the file:
+First, we'll import it at the top of the file:
 
 ```ts
 import Hello from './components/Hello';
@@ -351,7 +351,7 @@ To style our `Hello` component, we can create a CSS file at `src/components/Hell
 
 The tools that create-react-app uses (namely, Webpack and various loaders) allow us to just import the stylesheets we're interested in.
 When our build runs, any imported `.css` files will be concatenated into an output file.
-So in `src/components/Hello.tsx`, we'll add the following import.
+So, in `src/components/Hello.tsx`, we'll add the following import.
 
 ```ts
 import './Hello.css';
@@ -371,7 +371,7 @@ We can use these requirements to write a few tests for our components.
 But first, let's install Enzyme.
 [Enzyme](http://airbnb.io/enzyme/) is a common tool in the React ecosystem that makes it easier to write tests for how components will behave.
 By default, our application includes a library called jsdom to allow us to simulate the DOM and test its runtime behavior without a browser.
-Enzyme is similar, but builds on jsdom and makes it easier to make certain queries about our components.
+Enzyme is similar but builds on jsdom and makes it easier to make certain queries about our components.
 
 Let's install it as a development-time dependency.
 
@@ -547,7 +547,7 @@ export function decrementEnthusiasm(): DecrementEnthusiasm {
 
 We've created two types that describe what increment actions and decrement actions should look like.
 We also created a type (`EnthusiasmAction`) to describe cases where an action could be an increment or a decrement.
-Finally, we made two functions that actually manufacture the actions which we can use instead of writing out bulky object literals.
+Finally, we made two functions that manufacture the actions which we can use instead of writing out bulky object literals.
 
 There's clearly boilerplate here, so you should feel free to look into libraries like [redux-actions](https://www.npmjs.com/package/redux-actions) once you've got the hang of things.
 

@@ -2,27 +2,35 @@
   "name": "react-typescript-tutorial",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "react-addons-test-utils": "^15.4.2",
-    "react-scripts-ts": "1.0.6"
-  },
   "dependencies": {
     "@types/enzyme": "^2.7.2",
-    "@types/jest": "^18.1.1",
-    "@types/node": "^7.0.5",
-    "@types/react": "^15.6.6",
-    "@types/react-dom": "^0.14.22",
+    "@types/jest": "23.3.8",
+    "@types/node": "10.12.1",
+    "@types/react": "16.4.18",
+    "@types/react-dom": "16.0.9",
     "@types/react-redux": "^4.4.36",
     "enzyme": "^2.7.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^16.6.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.6.0",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0"
+    "react-scripts": "2.1.0",
+    "redux": "^3.6.0",
+    "typescript": "3.1.4"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  }
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

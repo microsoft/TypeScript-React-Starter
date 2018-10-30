@@ -3,10 +3,9 @@
 This quick start guide will teach you how to wire up TypeScript with [React](http://facebook.github.io/react/).
 By the end, you'll have
 
-* a project with React and TypeScript
-* linting with [TSLint](https://github.com/palantir/tslint)
-* testing with [Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/), and
-* state management with [Redux](https://github.com/reactjs/react-redux)
+- a project with React and TypeScript
+- testing with [Jest](https://facebook.github.io/jest/) and [Enzyme](http://airbnb.io/enzyme/), and
+- state management with [Redux](https://github.com/reactjs/react-redux)
 
 We'll use the [create-react-app](https://github.com/facebookincubator/create-react-app) tool to quickly get set up.
 
@@ -27,71 +26,28 @@ npm install -g create-react-app
 We'll create a new project called `my-app`:
 
 ```shell
-create-react-app my-app --scripts-version=react-scripts-ts
+create-react-app my-app --typescript
 ```
-
-[react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts) is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.
 
 At this point, your project layout should look like the following:
 
 ```text
 my-app/
 ├─ .gitignore
-├─ images.d.ts
 ├─ node_modules/
 ├─ public/
 ├─ src/
 │  └─ ...
 ├─ package.json
 ├─ tsconfig.json
-├─ tsconfig.prod.json
-├─ tsconfig.test.json
-└─ tslint.json
 ```
 
 Of note:
 
-* `tsconfig.json` contains TypeScript-specific options for our project.
-  * We also have a `tsconfig.prod.json` and a `tsconfig.test.json` in case we want to make any tweaks to our production builds, or our test builds.
-* `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
-* `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
-* `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
-* `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
-* `images.d.ts` will tell TypeScript that certain types of image files can be `import`-ed, which create-react-app supports.
-
-# Setting up source control
-
-Our testing tool, Jest, expects some form of source control (such as Git or Mercurial) to be present.
-For it to run correctly, we'll need to initialize a git repository.
-
-```sh
-git init
-git add .
-git commit -m "Initial commit."
-```
-
-> Note: if you've cloned this repository, you won't have to run the above at all.
-
-# Overriding defaults
-
-The TSLint configuration that react-scripts-ts sets us up with is a bit overzealous.
-Let's fix that up.
-
-```diff
- {
--  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-+  "extends": [],
-+  "defaultSeverity": "warning",
-   "linterOptions": {
-     "exclude": [
-       "config/**/*.js",
-       "node_modules/**/*.ts"
-     ]
-   }
- }
-```
-
-[Configuring TSLint](https://palantir.github.io/tslint/usage/configuration/) is out of the scope of this starter, but you should feel free to experiment with something that works for you.
+- `tsconfig.json` contains TypeScript-specific options for our project.
+- `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
+- `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
+- `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
 
 # Running the project
 
@@ -187,8 +143,8 @@ We also wrote `Hello` as a stateless function component (an SFC).
 To be specific, `Hello` is a function that takes a `Props` object, and picks apart (or "destructures") all the properties that it will be passed.
 If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
 
-Writing functions is one of two primary [ways React allows us to make components]((https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)).
-If we wanted, we *could* have written it out as a class as follows:
+Writing functions is one of two primary [ways React allows us to make components](<(https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)>).
+If we wanted, we _could_ have written it out as a class as follows:
 
 ```ts
 class Hello extends React.Component<Props, object> {
@@ -238,7 +194,7 @@ ReactDOM.render(
 ## Type assertions
 
 One thing we'll point out in this section is the line `document.getElementById('root') as HTMLElement`.
-This syntax is called a *type assertion*, sometimes also called a *cast*.
+This syntax is called a _type assertion_, sometimes also called a _cast_.
 This is a useful way of telling TypeScript what the real type of an expression is when you know better than the type checker.
 
 The reason we need to do so in this case is that `getElementById`'s return type is `HTMLElement | null`.
@@ -246,7 +202,7 @@ Put simply, `getElementById` returns `null` when it can't find an element with a
 We're assuming that `getElementById` will actually succeed, so we need to convince TypeScript of that using the `as` syntax.
 
 TypeScript also has a trailing "bang" syntax (`!`), which removes `null` and `undefined` from the prior expression.
-So we *could* have written `document.getElementById('root')!`, but in this case we wanted to be a bit more explicit.
+So we _could_ have written `document.getElementById('root')!`, but in this case we wanted to be a bit more explicit.
 
 ## Stateful components
 
@@ -254,7 +210,7 @@ We mentioned earlier that our component didn't need state.
 What if we wanted to be able to update our components based on user interaction over time?
 At that point, state becomes more important.
 
-Deeply understanding best practices around component state in React are out of the scope of this starter, but let's quickly peek at a *stateful* version of our `Hello` component to see what adding state looks like.
+Deeply understanding best practices around component state in React are out of the scope of this starter, but let's quickly peek at a _stateful_ version of our `Hello` component to see what adding state looks like.
 We're going to render two `<button>`s which update the number of exclamation marks that a `Hello` component displays.
 
 To do that, we're going to
@@ -266,7 +222,7 @@ To do that, we're going to
 ```ts
 // src/components/StatefulHello.tsx
 
-import * as React from "react";
+import * as React from 'react';
 
 export interface Props {
   name: string;
@@ -321,8 +277,9 @@ Notice:
 1. Much like with `Props`, we had to define a new type for our state: `State`.
 1. To update state in React, we use `this.setState` - we don't set it directly except in the constructor. `setState` only takes the properties we're interested in updating and our component will re-render as appropriate.
 1. We're using class property initializers with arrow functions (e.g. `onIncrement = () => ...`).
-  * Declaring these as arrow functions avoids issues with orphaned uses of `this`.
-  * Setting them as instance properties creates them only once - a common mistake is to initialize them in the `render` method which allocates closures one every call to `render`.
+
+- Declaring these as arrow functions avoids issues with orphaned uses of `this`.
+- Setting them as instance properties creates them only once - a common mistake is to initialize them in the `render` method which allocates closures one every call to `render`.
 
 We won't use this stateful component any further in this starter.
 Stateful components are great for creating components that focus solely on presenting content (as opposed to handling core application state).
@@ -362,9 +319,9 @@ import './Hello.css';
 We had a certain set of assumptions about our `Hello` component.
 Let's reiterate what they were:
 
-> * When we write something like `<Hello name="Daniel" enthusiasmLevel={3} />`, the component should render to something like `<div>Hello Daniel!!!</div>`.
-> * If `enthusiasmLevel` isn't specified, the component should default to showing one exclamation mark.
-> * If `enthusiasmLevel` is `0` or negative, it should throw an error.
+> - When we write something like `<Hello name="Daniel" enthusiasmLevel={3} />`, the component should render to something like `<div>Hello Daniel!!!</div>`.
+> - If `enthusiasmLevel` isn't specified, the component should default to showing one exclamation mark.
+> - If `enthusiasmLevel` is `0` or negative, it should throw an error.
 
 We can use these requirements to write a few tests for our components.
 
@@ -407,29 +364,29 @@ import * as enzyme from 'enzyme';
 import Hello from './Hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {
-  const hello = enzyme.shallow(<Hello name='Daniel' />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  const hello = enzyme.shallow(<Hello name="Daniel" />);
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm of 1', () => {
-  const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={1}/>);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  const hello = enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={1} />);
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm level of 5', () => {
-  const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={5} />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!!!!!');
+  const hello = enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={5} />);
+  expect(hello.find('.greeting').text()).toEqual('Hello Daniel!!!!!');
 });
 
 it('throws when the enthusiasm level is 0', () => {
   expect(() => {
-    enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={0} />);
+    enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={0} />);
   }).toThrow();
 });
 
 it('throws when the enthusiasm level is negative', () => {
   expect(() => {
-    enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={-1} />);
+    enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={-1} />);
   }).toThrow();
 });
 ```
@@ -492,8 +449,8 @@ For this, we can create a file called `src/types/index.tsx` which will contain d
 // src/types/index.tsx
 
 export interface StoreState {
-    languageName: string;
-    enthusiasmLevel: number;
+  languageName: string;
+  enthusiasmLevel: number;
 }
 ```
 
@@ -510,7 +467,6 @@ Let's start off by creating a set of message types that our app can respond to i
 export const INCREMENT_ENTHUSIASM = 'INCREMENT_ENTHUSIASM';
 export type INCREMENT_ENTHUSIASM = typeof INCREMENT_ENTHUSIASM;
 
-
 export const DECREMENT_ENTHUSIASM = 'DECREMENT_ENTHUSIASM';
 export type DECREMENT_ENTHUSIASM = typeof DECREMENT_ENTHUSIASM;
 ```
@@ -523,25 +479,25 @@ Next, we'll create a set of actions and functions that can create these actions 
 import * as constants from '../constants';
 
 export interface IncrementEnthusiasm {
-    type: constants.INCREMENT_ENTHUSIASM;
+  type: constants.INCREMENT_ENTHUSIASM;
 }
 
 export interface DecrementEnthusiasm {
-    type: constants.DECREMENT_ENTHUSIASM;
+  type: constants.DECREMENT_ENTHUSIASM;
 }
 
 export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
 
 export function incrementEnthusiasm(): IncrementEnthusiasm {
-    return {
-        type: constants.INCREMENT_ENTHUSIASM
-    }
+  return {
+    type: constants.INCREMENT_ENTHUSIASM,
+  };
 }
 
 export function decrementEnthusiasm(): DecrementEnthusiasm {
-    return {
-        type: constants.DECREMENT_ENTHUSIASM
-    }
+  return {
+    type: constants.DECREMENT_ENTHUSIASM,
+  };
 }
 ```
 
@@ -554,8 +510,8 @@ There's clearly boilerplate here, so you should feel free to look into libraries
 ## Adding a reducer
 
 We're ready to write our first reducer!
-Reducers are just functions that generate changes by creating modified copies of our application's state, but that have *no side effects*.
-In other words, they're what we call *[pure functions](https://en.wikipedia.org/wiki/Pure_function)*.
+Reducers are just functions that generate changes by creating modified copies of our application's state, but that have _no side effects_.
+In other words, they're what we call _[pure functions](https://en.wikipedia.org/wiki/Pure_function)_.
 
 Our reducer will go under `src/reducers/index.tsx`.
 Its function will be to ensure that increments raise the enthusiasm level by 1, and that decrements reduce the enthusiasm level by 1, but that the level never falls below 1.
@@ -567,18 +523,24 @@ import { EnthusiasmAction } from '../actions';
 import { StoreState } from '../types/index';
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
 
-export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
+export function enthusiasm(
+  state: StoreState,
+  action: EnthusiasmAction
+): StoreState {
   switch (action.type) {
     case INCREMENT_ENTHUSIASM:
       return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
     case DECREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+      return {
+        ...state,
+        enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1),
+      };
   }
   return state;
 }
 ```
 
-Notice that we're using the *object spread* (`...state`) which allows us to create a shallow copy of our state, while replacing the `enthusiasmLevel`.
+Notice that we're using the _object spread_ (`...state`) which allows us to create a shallow copy of our state, while replacing the `enthusiasmLevel`.
 It's important that the `enthusiasmLevel` property come last, since otherwise it would be overridden by the property in our old state.
 
 You may want to write a few tests for your reducer.
@@ -590,8 +552,8 @@ Consider looking into Jest's [toEqual](https://facebook.github.io/jest/docs/expe
 
 When writing with Redux, we will often write components as well as containers.
 Components are often data-agnostic, and work mostly at a presentational level.
-*Containers* typically wrap components and feed them any data that is necessary to display and modify state.
-You can read more about this concept on [Dan Abramov's article *Presentational and Container Components*](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
+_Containers_ typically wrap components and feed them any data that is necessary to display and modify state.
+You can read more about this concept on [Dan Abramov's article _Presentational and Container Components_](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 First let's update `src/components/Hello.tsx` so that it can modify state.
 We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
@@ -643,8 +605,8 @@ import { connect, Dispatch } from 'react-redux';
 The real two key pieces here are the original `Hello` component as well as the `connect` function from react-redux.
 `connect` will be able to actually take our original `Hello` component and turn it into a container using two functions:
 
-* `mapStateToProps` which massages the data from the current store to part of the shape that our component needs.
-* `mapDispatchToProps` which creates callback props to pump actions to our store using a given `dispatch` function.
+- `mapStateToProps` which massages the data from the current store to part of the shape that our component needs.
+- `mapDispatchToProps` which creates callback props to pump actions to our store using a given `dispatch` function.
 
 If we recall, our application state consists of two properties: `languageName` and `enthusiasmLevel`.
 Our `Hello` component, on the other hand, expected a `name` and an `enthusiasmLevel`.
@@ -656,7 +618,7 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
-  }
+  };
 }
 ```
 
@@ -666,11 +628,13 @@ Namely, we still want to pass in the `onIncrement` and `onDecrement` callbacks.
 This dispatcher function can pass actions into our store to make updates, so we can create a pair of callbacks that will call the dispatcher as necessary.
 
 ```ts
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(
+  dispatch: Dispatch<actions.EnthusiasmAction>
+) {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  }
+  };
 }
 ```
 
@@ -679,7 +643,10 @@ Finally, we're ready to call `connect`.
 Our resulting container is defined with the following line of code:
 
 ```ts
-export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Hello);
 ```
 
 When we're finished, our file should look like this:
@@ -696,17 +663,22 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
-  }
+  };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(
+  dispatch: Dispatch<actions.EnthusiasmAction>
+) {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Hello);
 ```
 
 ## Creating a store

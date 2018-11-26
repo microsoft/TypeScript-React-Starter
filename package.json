@@ -24,10 +24,12 @@
     "react-test-renderer": "^16.6.3",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
+    "debug": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",

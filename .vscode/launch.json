@@ -7,9 +7,18 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome",
+            "name": "Chrome :3000",
             "runtimeExecutable": "/usr/bin/chromium-browser",
             "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome ./index.html",
+            "runtimeExecutable": "/usr/bin/chromium-browser",
+            "cwd": "${workspaceFolder}",
+            "url": "file://${workspaceFolder}/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

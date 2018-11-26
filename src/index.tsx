@@ -14,9 +14,10 @@ const store = createStore(enthusiasm, {
   languageName: 'TypeScript',
 });
 
+
 ReactDOM.render(
   <Provider store={store}>
     <Hello />
   </Provider>,
-  document.getElementById('root') as HTMLElement
+  (document.getElementById('example') ? document.getElementById('example') : document.getElementById('root') ) as HTMLElement
 );

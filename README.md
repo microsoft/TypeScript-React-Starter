@@ -1,13 +1,25 @@
-# TypeScript React Starter +  webpack, npm 4.
+# TypeScript, React rdux, webpack and vscode
 
 forked from 
-Updated to
+
+Updated versions:
 
 Node v10.13.0
 npm 6.4.1
+react 16.6.3
+react-redux 5.1.1
+redux 4.0.1
 
-+ webpack 
-+ vscode
+Additions:
+
+webpack 4.26.0 
+
+vscode + debug script for chrom on linux
+
+
+Note:
+running webpack in the root folder will build the include files for index.html
+After building you can run the debugger usinf the "launch ./index.html" option
 
 
 # TypeScript React Starter

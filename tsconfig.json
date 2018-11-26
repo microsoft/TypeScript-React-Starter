@@ -3,6 +3,7 @@
     "outDir": "build/dist",
     "module": "commonjs",
     "target": "es5",
+    "baseUrl": ".",
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "allowJs": true,

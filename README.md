@@ -1,3 +1,15 @@
+# TypeScript React Starter +  webpack, npm 4.
+
+forked from 
+Updated to
+
+Node v10.13.0
+npm 6.4.1
+
++ webpack 
++ vscode
+
+
 # TypeScript React Starter
 
 This quick start guide will teach you how to wire up TypeScript with [React](http://facebook.github.io/react/).
@@ -376,7 +388,7 @@ Enzyme is similar, but builds on jsdom and makes it easier to make certain queri
 Let's install it as a development-time dependency.
 
 ```sh
-npm install -D enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer
+npm install --save-dev enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer
 ```
 
 Notice we installed packages `enzyme` as well as `@types/enzyme`.
@@ -719,7 +731,7 @@ import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
 
-const store = createStore<StoreState>(enthusiasm, {
+const store = createStore(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });

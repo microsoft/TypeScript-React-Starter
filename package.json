@@ -1,28 +1,45 @@
 {
   "name": "react-typescript-tutorial",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
-  "devDependencies": {
-    "react-addons-test-utils": "^15.4.2",
-    "react-scripts-ts": "1.0.6"
-  },
   "dependencies": {
-    "@types/enzyme": "^2.7.2",
-    "@types/jest": "^18.1.1",
-    "@types/node": "^7.0.5",
-    "@types/react": "^15.6.6",
-    "@types/react-dom": "^0.14.22",
-    "@types/react-redux": "^4.4.36",
-    "enzyme": "^2.7.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.2",
-    "redux": "^3.6.0"
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "@types/react-redux": "^6.0.10",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.15",
+    "@types/enzyme-adapter-react-16": "^1.0.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^1.0.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-scripts-ts": "^4.0.8",
+    "react-test-renderer": "^16.6.3",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.1.6",
+    "webpack-cli": "^3.1.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
+    "debug": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  }
+    "eject": "react-scripts-ts eject",
+    "webpack-start": "webpack-dev-server --mode development",
+    "webpack-build": "webpack --mode production"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

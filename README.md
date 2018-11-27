@@ -1,3 +1,32 @@
+# TypeScript, React rdux, webpack and vscode
+
+forked from https://github.com/Microsoft/TypeScript-React-Starter
+
+Updated versions:
+
+Node v10.13.0
+npm 6.4.1
+react 16.6.3
+react-redux 5.1.1
+redux 4.0.1
+
+Additions:
+
+webpack 4.26.0 (following this tutorial https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
+
+vscode + debug script for chrom on linux
+
+
+Note:
+running webpack in the root folder will build the include files for index.html
+After building you can run the debugger usinf the "launch ./index.html" option
+
+# Cool Visual Studio Code tip:
+
+Run `npm run start` in the integrted terminal and keep it open.
+Any errors will show with a link.
+Ctrl+click the link will open the file and location the error report referes to.
+
 # TypeScript React Starter
 
 This quick start guide will teach you how to wire up TypeScript with [React](http://facebook.github.io/react/).
@@ -376,7 +405,7 @@ Enzyme is similar, but builds on jsdom and makes it easier to make certain queri
 Let's install it as a development-time dependency.
 
 ```sh
-npm install -D enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer
+npm install --save-dev enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-test-renderer
 ```
 
 Notice we installed packages `enzyme` as well as `@types/enzyme`.
@@ -719,7 +748,7 @@ import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
 
-const store = createStore<StoreState>(enthusiasm, {
+const store = createStore(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });

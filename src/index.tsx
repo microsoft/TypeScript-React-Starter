@@ -9,14 +9,15 @@ import { StoreState } from './types/index';
 
 import './index.css';
 
-const store = createStore<StoreState>(enthusiasm, {
+const store = createStore(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });
+
 
 ReactDOM.render(
   <Provider store={store}>
     <Hello />
   </Provider>,
-  document.getElementById('root') as HTMLElement
+  (document.getElementById('example') ? document.getElementById('example') : document.getElementById('root') ) as HTMLElement
 );

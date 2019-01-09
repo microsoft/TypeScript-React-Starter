@@ -136,6 +136,37 @@ This will create an optimized JS and CSS build in `./build/static/js` and `./bui
 You won't need to run a production build most of the time,
 but it is useful if you need to measure things like the final size of your app.
 
+# Simplify imports
+
+When importing modules with the standard path, you may notice a inspection warning in your IDE that says, `Import can be shortened`. This can be resolved by adding relative paths in the `tsconfig.json` file. Although this project does not have a complicated directory structure, it is easier to manage imports through relative paths.
+
+
+Simply add a `"paths"` object as shown below:
+
+```ts
+// tsconfig.json
+
+{
+  "compilerOptions": {
+    ...,
+    "paths": {
+      "components/*": ["src/components/*"],
+      "actions/*": ["src/actions/*"],
+      "reducers/*": ["src/reducers/*"],
+      "constants/*": ["src/constants/*"],
+      "containers/*": ["src/containers/*"],
+      "types/*": ["src/types/*"]
+    }
+  },
+  ...
+}
+```
+
+This will create an optimized JS and CSS build in `./build/static/js` and `./build/static/css` respectively.
+
+You won't need to run a production build most of the time,
+but it is useful if you need to measure things like the final size of your app.
+
 # Creating a component
 
 We're going to write a `Hello` component.

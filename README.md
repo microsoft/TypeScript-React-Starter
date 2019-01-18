@@ -27,42 +27,44 @@ npm install -g create-react-app
 We'll create a new project called `my-app`:
 
 ```shell
-create-react-app my-app --scripts-version=react-scripts-ts
+create-react-app my-app --typescript
 ```
-
-[react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts) is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.
 
 At this point, your project layout should look like the following:
 
-```text
+```
 my-app/
-├─ .gitignore
-├─ images.d.ts
 ├─ node_modules/
 ├─ public/
 ├─ src/
-│  └─ ...
+│  ├─ App.css
+│  ├─ App.test.tsx
+│  ├─ App.tsx
+│  ├─ index.css
+│  ├─ index.tsx
+│  ├─ logo.svg
+│  ├─ react-app-env.d.ts
+│  └─ serviceWorker.ts
+├─ .gitignore
+├─ package-lock.json
 ├─ package.json
 ├─ tsconfig.json
-├─ tsconfig.prod.json
-├─ tsconfig.test.json
-└─ tslint.json
+└─ README.md
 ```
 
 Of note:
 
 * `tsconfig.json` contains TypeScript-specific options for our project.
-  * We also have a `tsconfig.prod.json` and a `tsconfig.test.json` in case we want to make any tweaks to our production builds, or our test builds.
-* `tslint.json` stores the settings that our linter, [TSLint](https://github.com/palantir/tslint), will use.
 * `package.json` contains our dependencies, as well as some shortcuts for commands we'd like to run for testing, previewing, and deploying our app.
 * `public` contains static assets like the HTML page we're planning to deploy to, or images. You can delete any file in this folder apart from `index.html`.
 * `src` contains our TypeScript and CSS code. `index.tsx` is the entry-point for our file, and is mandatory.
-* `images.d.ts` will tell TypeScript that certain types of image files can be `import`-ed, which create-react-app supports.
 
 # Setting up source control
 
 Our testing tool, Jest, expects some form of source control (such as Git or Mercurial) to be present.
 For it to run correctly, we'll need to initialize a git repository.
+
+> Note: if you've cloned this repository, you won't have to run the below at all.
 
 ```sh
 git init
@@ -70,35 +72,12 @@ git add .
 git commit -m "Initial commit."
 ```
 
-> Note: if you've cloned this repository, you won't have to run the above at all.
-
-# Overriding defaults
-
-The TSLint configuration that react-scripts-ts sets us up with is a bit overzealous.
-Let's fix that up.
-
-```diff
- {
--  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-+  "extends": [],
-+  "defaultSeverity": "warning",
-   "linterOptions": {
-     "exclude": [
-       "config/**/*.js",
-       "node_modules/**/*.ts"
-     ]
-   }
- }
-```
-
-[Configuring TSLint](https://palantir.github.io/tslint/usage/configuration/) is out of the scope of this starter, but you should feel free to experiment with something that works for you.
-
 # Running the project
 
 Running the project is as simple as running
 
 ```sh
-npm run start
+npm start
 ```
 
 This runs the `start` script specified in our `package.json`, and will spawn off a server which reloads the page as we save our files.
@@ -111,16 +90,33 @@ This tightens the iteration loop by allowing us to quickly preview changes.
 Testing is also just a command away:
 
 ```sh
-npm run test
+npm test
 ```
 
 This command runs Jest, an incredibly useful testing utility, against all files whose extensions end in `.test.ts` or `.spec.ts`.
-Like with the `npm run start` command, Jest will automatically run as soon as it detects changes.
-If you'd like, you can run `npm run start` and `npm run test` side by side so that you can preview changes and test them simultaneously.
+Like with the `npm start` command, Jest will automatically run as soon as it detects changes.
+If you'd like, you can run `npm start` and `npm test` side by side so that you can preview changes and test them simultaneously.
+
+# Configuring TSLint
+
+CRA with TypeScript doesn't currently support TSLint. The support for it will land in the future, but won't be configurable
+through `tslint.json`.
+
+[You can learn more about that in this CRA issue](https://github.com/facebook/create-react-app/issues/5682)
+
+The CRA team will attempt to approximate JS CRA ESLint config in TS CRA TSLint config.
+
+[You can see the work in progress CRA issue here](https://github.com/facebook/create-react-app/issues/5641)
+
+In case you decide you don't want to wait, you can add TSLint linting manually:
+
+[See how to do that in the issue comment here](https://github.com/facebook/create-react-app/issues/5641#issuecomment-435031149)
+
+[Configuring TSLint](https://palantir.github.io/tslint/usage/configuration/) is out of the scope of this starter, but you should feel free to experiment with something that works for you.
 
 # Creating a production build
 
-When running the project with `npm run start`, we didn't end up with an optimized build.
+When running the project with `npm start`, we didn't end up with an optimized build.
 Typically, we want the code we ship to users to be as fast and small as possible.
 Certain optimizations like minification can accomplish this, but often take more time.
 We call builds like this "production" builds (as opposed to development builds).
@@ -128,7 +124,7 @@ We call builds like this "production" builds (as opposed to development builds).
 To run a production build, just run
 
 ```sh
-npm run build
+npm build
 ```
 
 This will create an optimized JS and CSS build in `./build/static/js` and `./build/static/css` respectively.

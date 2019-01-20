@@ -383,7 +383,7 @@ Notice we installed packages `enzyme` as well as `@types/enzyme`.
 The `enzyme` package refers to the package containing JavaScript code that actually gets run, while `@types/enzyme` is a package that contains declaration files (`.d.ts` files) so that TypeScript can understand how you can use Enzyme.
 You can learn more about `@types` packages [here](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html).
 
-We also had to install `enzyme-adapter-react-16 and react-test-renderer`.
+We also had to install `enzyme-adapter-react-16` and `react-test-renderer`.
 This is something `enzyme` expects to be installed.
 
 Before writing the first test, we have to configure Enzyme to use an adapter for React 16.

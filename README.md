@@ -436,6 +436,14 @@ it('throws when the enthusiasm level is negative', () => {
 
 These tests are extremely basic, but you should be able to get the gist of things.
 
+Notice:
+
+If you find yourself getting an error when trying to run ```sh npm run test``` after installing enzyme make sure react-script-ts is installed in your package.json file under "devDependencies". If not, this can be installed as a development-time dependency using the follow command:
+
+```sh
+npm install react-scripts-ts@4.0.8 
+```
+
 # Adding state management
 
 At this point, if all you're using React for is fetching data once and displaying it, you can consider yourself done.

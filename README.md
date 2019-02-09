@@ -441,7 +441,7 @@ Notice:
 If you find yourself getting an error when trying to run ```npm run test``` after installing enzyme make sure react-script-ts is installed in your package.json file under "devDependencies". If not, this can be installed as a development-time dependency using the follow command:
 
 ```sh
-npm install react-scripts-ts@4.0.8 
+npm install -D react-scripts-ts@4.0.8 
 ```
 
 # Adding state management

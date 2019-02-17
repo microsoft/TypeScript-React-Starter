@@ -280,7 +280,18 @@ interface State {
 class Hello extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
+    /*
+     * If enthusiam is set to 0 without the if clause
+     * the || will review it as falsy and adjust it to 1.
+     * This behavior will clash with the Hello.test.tsx test:
+     * 'throws when the enthusiasm level is 0' since it will
+     * not throw but result in 1 exclamation mark after the name.
+     */
+    if(props.enthusiasmLevel !== 0){
+      this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
+    } else {
+      this.state = {currentEnthusiasm: 0}
+    }
   }
 
   onIncrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm + 1);

@@ -283,8 +283,21 @@ class Hello extends React.Component<Props, State> {
     this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
   }
 
-  onIncrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm + 1);
-  onDecrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm - 1);
+  onIncrement = () => {
+    this.setState(nextState => {
+      return {
+        currentEnthusiasm: nextState.currentEnthusiasm + 1
+      };
+    });
+  }
+
+  onDecrement = () => {
+    this.setState(nextState => {
+      return {
+        currentEnthusiasm: nextState.currentEnthusiasm - 1
+      };
+    });
+  }
 
   render() {
     const { name } = this.props;
@@ -302,10 +315,6 @@ class Hello extends React.Component<Props, State> {
         <button onClick={this.onIncrement}>+</button>
       </div>
     );
-  }
-
-  updateEnthusiasm(currentEnthusiasm: number) {
-    this.setState({ currentEnthusiasm });
   }
 }
 

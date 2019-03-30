@@ -280,7 +280,8 @@ interface State {
 class Hello extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
+    const { enthusiasmLevel = 1 } = props
+    this.state = { currentEnthusiasm: enthusiasmLevel };
   }
 
   onIncrement = () => this.updateEnthusiasm(this.state.currentEnthusiasm + 1);

@@ -637,7 +637,7 @@ Let's create a file named `src/containers/Hello.tsx` and start off with the foll
 import Hello from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
+import { connect, DispatchProp } from 'react-redux';
 ```
 
 The real two key pieces here are the original `Hello` component as well as the `connect` function from react-redux.
@@ -666,7 +666,7 @@ Namely, we still want to pass in the `onIncrement` and `onDecrement` callbacks.
 This dispatcher function can pass actions into our store to make updates, so we can create a pair of callbacks that will call the dispatcher as necessary.
 
 ```ts
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(dispatch: DispatchProp<actions.EnthusiasmAction>) {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),

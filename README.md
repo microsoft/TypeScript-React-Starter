@@ -716,8 +716,8 @@ To put this all together, we need to create a store with an initial state, and s
 
 ```ts
 import { createStore } from 'redux';
-import { enthusiasm } from './reducers/index';
-import { StoreState } from './types/index';
+import { enthusiasm } from '../reducers/index';
+import { StoreState } from '../types/index';
 
 const store = createStore<StoreState>(enthusiasm, {
   enthusiasmLevel: 1,

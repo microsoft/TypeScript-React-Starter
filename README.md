@@ -27,7 +27,7 @@ npm install -g create-react-app
 We'll create a new project called `my-app`:
 
 ```shell
-create-react-app my-app --scripts-version=react-scripts-ts
+create-react-app my-app --typescript
 ```
 
 [react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts) is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.

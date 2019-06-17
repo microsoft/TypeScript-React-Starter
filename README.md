@@ -566,8 +566,12 @@ Its function will be to ensure that increments raise the enthusiasm level by 1, 
 import { EnthusiasmAction } from '../actions';
 import { StoreState } from '../types/index';
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+import { Reducer } from "redux";
 
-export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
+export const enthusiasm: Reducer = (
+  state: StoreState,
+  action: EnthusiasmAction
+): StoreState => {
   switch (action.type) {
     case INCREMENT_ENTHUSIASM:
       return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };

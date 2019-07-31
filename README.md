@@ -1,4 +1,4 @@
-This repo is now deprecated. In the time since it created [TypeScript support](https://facebook.github.io/create-react-app/docs/adding-typescript) is now a deafult feature of [Create React App](https://facebook.github.io/create-react-app/). 
+This repo is now deprecated. In the time since it created [TypeScript support](https://facebook.github.io/create-react-app/docs/adding-typescript) is now a default feature of [Create React App](https://facebook.github.io/create-react-app/). 
 
 This means you can get started with:
 

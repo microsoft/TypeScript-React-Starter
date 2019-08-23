@@ -20,8 +20,10 @@ also use the official documentation in the Create React App website for that.
 If you'd like to know more about how to effectively do React with TypeScript, we recommend looking at the following:
 
 - [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets)
+- [React & Redux in TypeScript - Static Typing Guide](https://github.com/piotrwitek/react-redux-typescript-guide#react--redux-in-typescript---static-typing-guide)
 - [Use TypeScript to develop React applications](https://egghead.io/courses/use-typescript-to-develop-react-applications)
 - [Ultimate React Component Patterns with Typescript 2.8](https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935)
+
 
 Below is the original README for this sample.
 

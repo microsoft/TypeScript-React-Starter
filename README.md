@@ -149,6 +149,8 @@ This command runs Jest, an incredibly useful testing utility, against all files 
 Like with the `npm run start` command, Jest will automatically run as soon as it detects changes.
 If you'd like, you can run `npm run start` and `npm run test` side by side so that you can preview changes and test them simultaneously.
 
+> Note: You need to set up source control for this to work. Read [Setting up source control](https://github.com/Microsoft/TypeScript-React-Starter#setting-up-source-control).
+
 # Creating a production build
 
 When running the project with `npm run start`, we didn't end up with an optimized build.

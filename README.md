@@ -183,12 +183,12 @@ We'll write a `Hello.tsx`:
 
 import * as React from 'react';
 
-export interface Props {
+export interface IProps {
   name: string;
   enthusiasmLevel?: number;
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Props) {
+function Hello({ name, enthusiasmLevel = 1 }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
@@ -299,17 +299,17 @@ To do that, we're going to
 
 import * as React from "react";
 
-export interface Props {
-  name: string;
+export interface IProps {
+  name?: string;
   enthusiasmLevel?: number;
 }
 
-interface State {
+interface IState {
   currentEnthusiasm: number;
 }
 
-class Hello extends React.Component<Props, State> {
-  constructor(props: Props) {
+class Hello extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
     this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
   }
@@ -522,7 +522,7 @@ For this, we can create a file called `src/types/index.tsx` which will contain d
 ```ts
 // src/types/index.tsx
 
-export interface StoreState {
+export interface IStoreState {
     languageName: string;
     enthusiasmLevel: number;
 }
@@ -553,23 +553,23 @@ Next, we'll create a set of actions and functions that can create these actions 
 ```ts
 import * as constants from '../constants';
 
-export interface IncrementEnthusiasm {
+export interface IIncrementEnthusiasm {
     type: constants.INCREMENT_ENTHUSIASM;
 }
 
-export interface DecrementEnthusiasm {
+export interface IDecrementEnthusiasm {
     type: constants.DECREMENT_ENTHUSIASM;
 }
 
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
+export type EnthusiasmAction = IIncrementEnthusiasm | IDecrementEnthusiasm;
 
-export function incrementEnthusiasm(): IncrementEnthusiasm {
+export function incrementEnthusiasm(): IIncrementEnthusiasm {
     return {
         type: constants.INCREMENT_ENTHUSIASM
     }
 }
 
-export function decrementEnthusiasm(): DecrementEnthusiasm {
+export function decrementEnthusiasm(): IDecrementEnthusiasm {
     return {
         type: constants.DECREMENT_ENTHUSIASM
     }
@@ -628,7 +628,7 @@ First let's update `src/components/Hello.tsx` so that it can modify state.
 We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
 
 ```ts
-export interface Props {
+export interface IProps {
   name: string;
   enthusiasmLevel?: number;
   onIncrement?: () => void;

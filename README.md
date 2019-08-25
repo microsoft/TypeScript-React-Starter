@@ -749,8 +749,9 @@ To put this all together, we need to create a store with an initial state, and s
 import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
+import { EnthusiasmAction } from './actions/index';
 
-const store = createStore<StoreState>(enthusiasm, {
+const store = createStore<StoreState, EnthusiasmAction, any, any>(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });

@@ -668,7 +668,8 @@ Let's create a file named `src/containers/Hello.tsx` and start off with the foll
 import Hello from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
+import { connect } from 'react-redux;
+import { Dispatch } from 'redux';
 ```
 
 The real two key pieces here are the original `Hello` component as well as the `connect` function from react-redux.
@@ -749,8 +750,9 @@ To put this all together, we need to create a store with an initial state, and s
 import { createStore } from 'redux';
 import { enthusiasm } from './reducers/index';
 import { StoreState } from './types/index';
+import { EnthusiasmAction } from './actions/index';\
 
-const store = createStore<StoreState>(enthusiasm, {
+const store = createStore<StoreState, EnthusiasmAction, any, any>(enthusiasm, {
   enthusiasmLevel: 1,
   languageName: 'TypeScript',
 });

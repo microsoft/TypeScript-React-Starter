@@ -44,22 +44,19 @@ We'll use the [create-react-app](https://github.com/facebookincubator/create-rea
 We assume that you're already using [Node.js](https://nodejs.org/) with [npm](https://www.npmjs.com/).
 You may also want to get a sense of [the basics with React](https://facebook.github.io/react/docs/hello-world.html).
 
-# Install create-react-app
+# Using create-react-app
 
 We're going to use the create-react-app because it sets some useful tools and canonical defaults for React projects.
 This is just a command-line utility to scaffold out new React projects.
-
-```shell
-npm install -g create-react-app
-```
 
 # Create our new project
 
 We'll create a new project called `my-app`:
 
 ```shell
-create-react-app my-app --scripts-version=react-scripts-ts
+npx create-react-app my-app --scripts-version=react-scripts-ts
 ```
+*([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher, see [instructions for older npm versions](https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f))*
 
 [react-scripts-ts](https://www.npmjs.com/package/react-scripts-ts) is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.
 

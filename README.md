@@ -183,12 +183,12 @@ We'll write a `Hello.tsx`:
 
 import * as React from 'react';
 
-export interface Props {
-  name: string;
+export interface IProps {
+  name?: string;
   enthusiasmLevel?: number;
 }
 
-function Hello({ name, enthusiasmLevel = 1 }: Props) {
+function Hello({ name, enthusiasmLevel = 1 }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
@@ -211,18 +211,18 @@ function getExclamationMarks(numChars: number) {
 }
 ```
 
-Notice that we defined a type named `Props` that specifies the properties our component will take.
+Notice that we defined a type named `IProps` that specifies the properties our component will take.
 `name` is a required `string`, and `enthusiasmLevel` is an optional `number` (which you can tell from the `?` that we wrote out after its name).
 
 We also wrote `Hello` as a stateless function component (an SFC).
-To be specific, `Hello` is a function that takes a `Props` object, and picks apart (or "destructures") all the properties that it will be passed.
-If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
+To be specific, `Hello` is a function that takes a `IProps` object, and picks apart (or "destructures") all the properties that it will be passed.
+If `enthusiasmLevel` isn't given in our `IProps` object, it will default to `1`.
 
 Writing functions is one of two primary [ways React allows us to make components]((https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)).
 If we wanted, we *could* have written it out as a class as follows:
 
 ```ts
-class Hello extends React.Component<Props, object> {
+class Hello extends React.Component<IProps, object> {
   render() {
     const { name, enthusiasmLevel = 1 } = this.props;
 
@@ -242,11 +242,11 @@ class Hello extends React.Component<Props, object> {
 ```
 
 Classes are useful [when our component instances have some state or need to handle lifecycle hooks](https://facebook.github.io/react/docs/state-and-lifecycle.html).
-But we don't really need to think about state in this specific example - in fact, we specified it as `object` in `React.Component<Props, object>`, so writing an SFC makes more sense here, but it's important to know how to write a class component.
+But we don't really need to think about state in this specific example - in fact, we specified it as `object` in `React.Component<IProps, object>`, so writing an SFC makes more sense here, but it's important to know how to write a class component.
 
-Notice that the class extends `React.Component<Props, object>`.
-The TypeScript-specific bit here are the type arguments we're passing to `React.Component`: `Props` and `object`.
-Here, `Props` is the type of our class's `this.props`, and `object` is the type of `this.state`.
+Notice that the class extends `React.Component<IProps, object>`.
+The TypeScript-specific bit here are the type arguments we're passing to `React.Component`: `IProps` and `object`.
+Here, `IProps` is the type of our class's `this.props`, and `object` is the type of `this.state`.
 We'll return to component state in a bit.
 
 Now that we've written our component, let's dive into `index.tsx` and replace our render of `<App />` with a render of `<Hello ... />`.
@@ -299,8 +299,8 @@ To do that, we're going to
 
 import * as React from "react";
 
-export interface Props {
-  name: string;
+export interface IProps {
+  name?: string;
   enthusiasmLevel?: number;
 }
 
@@ -308,8 +308,8 @@ interface State {
   currentEnthusiasm: number;
 }
 
-class Hello extends React.Component<Props, State> {
-  constructor(props: Props) {
+class Hello extends React.Component<IProps, State> {
+  constructor(props: IProps) {
     super(props);
     this.state = { currentEnthusiasm: props.enthusiasmLevel || 1 };
   }
@@ -349,7 +349,7 @@ function getExclamationMarks(numChars: number) {
 
 Notice:
 
-1. Much like with `Props`, we had to define a new type for our state: `State`.
+1. Much like with `IProps`, we had to define a new type for our state: `State`.
 1. To update state in React, we use `this.setState` - we don't set it directly except in the constructor. `setState` only takes the properties we're interested in updating and our component will re-render as appropriate.
 1. We're using class property initializers with arrow functions (e.g. `onIncrement = () => ...`).
   * Declaring these as arrow functions avoids issues with orphaned uses of `this`.
@@ -625,11 +625,11 @@ Components are often data-agnostic, and work mostly at a presentational level.
 You can read more about this concept on [Dan Abramov's article *Presentational and Container Components*](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 First let's update `src/components/Hello.tsx` so that it can modify state.
-We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
+We'll add two optional callback properties to `IProps` named `onIncrement` and `onDecrement`:
 
 ```ts
-export interface Props {
-  name: string;
+export interface IProps {
+  name?: string;
   enthusiasmLevel?: number;
   onIncrement?: () => void;
   onDecrement?: () => void;
@@ -639,7 +639,7 @@ export interface Props {
 Then we'll bind those callbacks to two new buttons that we'll add into our component.
 
 ```ts
-function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
+function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }

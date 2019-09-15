@@ -421,8 +421,8 @@ Before writing the first test, we have to configure Enzyme to use an adapter for
 We'll create a file called `src/setupTests.ts` that is automatically loaded when running tests:
 
 ```ts
-import * as enzyme from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
+import enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 enzyme.configure({ adapter: new Adapter() });
 ```

@@ -795,6 +795,12 @@ and you should be good to go!
 As a heads up, you may want to commit all your work before running an eject.
 You cannot undo an eject command, so opting out is permanent unless you can recover from a commit prior to running an eject.
 
+# Code of Conduct
+This project has adopted the Microsoft Open Source Code of Conduct. For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional questions or comments.
+
+#License
+This software is covered under the MIT license. You can read the license [here](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/LICENSE).
+
 # Next steps
 
 create-react-app comes with a lot of great stuff.

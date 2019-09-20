@@ -509,10 +509,11 @@ For our purposes, we're going to add two buttons to control the enthusiasm level
 To add Redux, we'll first install `redux` and `react-redux`, as well as their types, as a dependency.
 
 ```sh
-npm install -S redux react-redux @types/react-redux
+npm install -S redux react-redux 
+# npm install @types/react-redux
 ```
 
-In this case we didn't need to install `@types/redux` because Redux already comes with its own definition files (`.d.ts` files).
+In this case we didn't need to install `@types/redux` because Redux already comes with its own definition files (`.d.ts` files), that's why it's commented.
 
 ## Defining our app's state
 

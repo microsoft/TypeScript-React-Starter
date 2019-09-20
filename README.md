@@ -98,7 +98,7 @@ For it to run correctly, we'll need to initialize a git repository.
 ```sh
 git init
 git add .
-git commit -m "Initial commit."
+git commit -m "Initial commit"
 ```
 
 > Note: if you've cloned this repository, you won't have to run the above at all.
@@ -439,12 +439,12 @@ import Hello from './Hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' />);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm of 1', () => {
   const hello = enzyme.shallow(<Hello name='Daniel' enthusiasmLevel={1}/>);
-  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!');
 });
 
 it('renders the correct text with an explicit enthusiasm level of 5', () => {
@@ -687,7 +687,7 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
-  }
+  };
 }
 ```
 
@@ -701,7 +701,7 @@ export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>)
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  }
+  };
 }
 ```
 
@@ -727,14 +727,14 @@ export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {
     enthusiasmLevel,
     name: languageName,
-  }
+  };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);

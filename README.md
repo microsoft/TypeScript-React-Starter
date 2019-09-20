@@ -433,8 +433,9 @@ Let's create a file named `src/components/Hello.test.tsx`, adjacent to our `Hell
 ```ts
 // src/components/Hello.test.tsx
 
-import * as React from 'react';
 import * as enzyme from 'enzyme';
+import * as React from 'react';
+
 import Hello from './Hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {

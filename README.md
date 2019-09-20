@@ -668,7 +668,8 @@ Let's create a file named `src/containers/Hello.tsx` and start off with the foll
 import Hello from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 ```
 
 The real two key pieces here are the original `Hello` component as well as the `connect` function from react-redux.
@@ -721,7 +722,8 @@ When we're finished, our file should look like this:
 import Hello from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
-import { connect, Dispatch } from 'react-redux';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
 export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
   return {

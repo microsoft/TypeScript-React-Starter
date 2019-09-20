@@ -218,6 +218,34 @@ We also wrote `Hello` as a stateless function component (an SFC).
 To be specific, `Hello` is a function that takes a `Props` object, and picks apart (or "destructures") all the properties that it will be passed.
 If `enthusiasmLevel` isn't given in our `Props` object, it will default to `1`.
 
+Another way to define an SFC is to use an arrow function as follows:
+
+```ts
+const Hello: React.SFC<Props> = ({name, enthusiasmLevel = 1}) => {
+  if (enthusiasmLevel <= 0) {
+    throw new Error('You could be a little more enthusiastic. :D');
+  }
+
+  return (
+    <div className="hello">
+      <div className="greeting">
+        Hello {name + getExclamationMarks(enthusiasmLevel)}
+      </div>
+    </div>
+  );
+}
+```
+
+Note that we type "Hello" as a `React.SFC<Props>` here. This implicitly adds the special children prop to the function's `props` argument. If we wanted to have the prop available in our regular function component, we'd have to add `children` to the `Props` interface ourselves:
+
+```ts
+export interface Props {
+  name: string;
+  enthusiasmLevel?: number;
+  children?: React.ReactNode;
+}
+```
+
 Writing functions is one of two primary [ways React allows us to make components]((https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components)).
 If we wanted, we *could* have written it out as a class as follows:
 

@@ -103,7 +103,7 @@ git commit -m "Initial commit."
 
 > Note: if you've cloned this repository, you won't have to run the above at all.
 
-# Overriding defaults
+# Overriding Defaults
 
 The TSLint configuration that react-scripts-ts sets us up with is a bit overzealous.
 Let's fix that up.
@@ -245,7 +245,7 @@ Classes are useful [when our component instances have some state or need to hand
 But we don't really need to think about state in this specific example - in fact, we specified it as `object` in `React.Component<Props, object>`, so writing an SFC makes more sense here, but it's important to know how to write a class component.
 
 Notice that the class extends `React.Component<Props, object>`.
-The TypeScript-specific bit here are the type arguments we're passing to `React.Component`: `Props` and `object`.
+The TypeScript-specific bit here is the type arguments we're passing to `React.Component`: `Props` and `object`.
 Here, `Props` is the type of our class's `this.props`, and `object` is the type of `this.state`.
 We'll return to component state in a bit.
 

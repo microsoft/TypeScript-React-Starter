@@ -604,8 +604,9 @@ export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreSt
       return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
     case DECREMENT_ENTHUSIASM:
       return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+    default:
+      return state;
   }
-  return state;
 }
 ```
 

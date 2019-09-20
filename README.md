@@ -625,12 +625,10 @@ Components are often data-agnostic, and work mostly at a presentational level.
 You can read more about this concept on [Dan Abramov's article *Presentational and Container Components*](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0).
 
 First let's update `src/components/Hello.tsx` so that it can modify state.
-We'll add two optional callback properties to `Props` named `onIncrement` and `onDecrement`:
+We'll create the `DispatchProps` interface that holds two optional callback properties named `onIncrement` and `onDecrement`:
 
 ```ts
-export interface Props {
-  name: string;
-  enthusiasmLevel?: number;
+export interface DispatchProps {
   onIncrement?: () => void;
   onDecrement?: () => void;
 }
@@ -639,22 +637,25 @@ export interface Props {
 Then we'll bind those callbacks to two new buttons that we'll add into our component.
 
 ```ts
-function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
-  if (enthusiasmLevel <= 0) {
-    throw new Error('You could be a little more enthusiastic. :D');
-  }
+export class Hello extends React.Component<Props & DispatchProps, object> {
+  render() {
+    const {enthusiasmLevel = 1} = this.props;  
+    if (enthusiasmLevel <= 0) {
+      throw new Error('You could be a little more enthusiastic. :D');
+    }
 
-  return (
-    <div className="hello">
-      <div className="greeting">
-        Hello {name + getExclamationMarks(enthusiasmLevel)}
+    return (
+      <div className="hello">
+        <div className="greeting">
+          Hello {this.props.name + getExclamationMarks(enthusiasmLevel)}
+        </div>
+        <div>
+          <button onClick={this.props.onDecrement}>-</button>
+          <button onClick={this.props.onIncrement}>+</button>
+        </div>
       </div>
-      <div>
-        <button onClick={onDecrement}>-</button>
-        <button onClick={onIncrement}>+</button>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 ```
 
@@ -665,7 +666,7 @@ Now that our component is updated, we're ready to wrap it into a container.
 Let's create a file named `src/containers/Hello.tsx` and start off with the following imports.
 
 ```ts
-import Hello from '../components/Hello';
+import { Hello, Props, DispatchProps } from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
@@ -683,7 +684,7 @@ Our `Hello` component, on the other hand, expected a `name` and an `enthusiasmLe
 Let's go ahead and write that.
 
 ```ts
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState): Props {
   return {
     enthusiasmLevel,
     name: languageName,
@@ -697,7 +698,7 @@ Namely, we still want to pass in the `onIncrement` and `onDecrement` callbacks.
 This dispatcher function can pass actions into our store to make updates, so we can create a pair of callbacks that will call the dispatcher as necessary.
 
 ```ts
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>): DispatchProps {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),
@@ -718,19 +719,19 @@ When we're finished, our file should look like this:
 ```ts
 // src/containers/Hello.tsx
 
-import Hello from '../components/Hello';
+import { Hello, Props, DispatchProps } from '../components/Hello';
 import * as actions from '../actions/';
 import { StoreState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
 
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState): Props {
   return {
     enthusiasmLevel,
     name: languageName,
   }
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>): DispatchProps {
   return {
     onIncrement: () => dispatch(actions.incrementEnthusiasm()),
     onDecrement: () => dispatch(actions.decrementEnthusiasm()),

@@ -353,7 +353,7 @@ Notice:
 1. To update state in React, we use `this.setState` - we don't set it directly except in the constructor. `setState` only takes the properties we're interested in updating and our component will re-render as appropriate.
 1. We're using class property initializers with arrow functions (e.g. `onIncrement = () => ...`).
   * Declaring these as arrow functions avoids issues with orphaned uses of `this`.
-  * Setting them as instance properties creates them only once - a common mistake is to initialize them in the `render` method which allocates closures one every call to `render`.
+  * Setting them as instance properties creates them only once - a common mistake is to initialize them in the `render` method which allocates closures on every call to `render`.
 
 We won't use this stateful component any further in this starter.
 Stateful components are great for creating components that focus solely on presenting content (as opposed to handling core application state).
